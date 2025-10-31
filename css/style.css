@@ -1,419 +1,316 @@
 * {
-  margin: 0px;
-  padding: 0px;
-}
-body {
-  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 ul {
   list-style: none;
 }
-
-/* 화면 전체 영상 컨테이너 */
-.video-full {
-  position: relative; /* 화면 전체 */
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+/* header */
+header {
+  width: 100%;
+  /* background: lightgreen; */
+  z-index: 10;
+  position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  max-height: 100vh; /* 화면 넘지 않도록 */
-  overflow: hidden;
-  padding: 150px 0px 150px 0px;
-  box-sizing: border-box;
-  /* z-index: 1; 동영상 위로 올라오게 */
 }
-
-/* video 영상 꽉 채우기 */
-.video-full video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-}
-
-/* 비디오 하단 컨트롤바 */
-.video-nav {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
+#menu {
+  height: 80px;
+  color: white;
+  text-shadow: 4px 4px 3px rgb(95, 95, 95);
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 40px;
+  text-align: center;
+  justify-content: center;
+}
+#menu h1 {
+  font-size: 2.5rem;
+}
+#menu img {
+  width: 100%;
+}
+ul {
+  display: flex;
+}
+#menu h2 {
+  font-size: 2.5rem;
 }
 
-.dot {
-  width: 15px;
-  height: 15px;
-  background: rgba(255, 255, 255, 0.38); /* 흰색, 투명도 0.38 */
-  border-radius: 50%; /* 원형 */
-  cursor: pointer;
-  transition: background 0.3s;
-}
+/* 베스트 상품 소개 */
 
-.dot.active {
-  background: rgba(235, 76, 76, 0.7);
-}
-
-/* 회사소개 섹션 */
-.about-us {
+.wrapper {
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  transition: background-color 0.5s;
-  color: #fff;
-  font-weight: bold;
-  position: relative;
   overflow: hidden;
+  position: relative;
 }
-
-/* 플러스 중앙 */
-.about-us .plus {
+/*h2*/
+h2 {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-}
-
-/* 텍스트 (플러스보다 위, 오른쪽에서 슬라이드) */
-.about-us .list.text div {
-  position: absolute;
-  left: 50%;
-  transform: translateX(150%); /* 오른쪽 밖에서 시작 */
-  opacity: 0;
-  transition: transform 1s ease, opacity 1s ease;
-  font-size: 7vw;
-  color: #fff;
-  z-index: 10;
-}
-/* 플러스보다 위 위치 */
-.about-us .text1,
-.text2,
-.text3 {
-  top: calc(50% - 350px);
-}
-
-/* active 클래스 붙으면 슬라이드 + 나타나기 */
-.about-us .list.text div.active {
-  transform: translateX(-50%); /* X축만 중앙 */
-  opacity: 1;
-}
-
-/* 로고 (플러스보다 아래, 중앙) */
-.about-us .logo {
-  width: 50vw;
-  position: absolute;
-  top: calc(50% + 150px);
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10;
+  font-size: 3rem;
+  color: red;
+}
+.container {
+  width: 1000px;
+  height: 1000px;
+  bottom: -60%;
+  position: relative; /* 안에 절대배치 쓸 거라서 */
+}
+
+/* 여기! 실제로 도는 것만 커지게 하는 레이어 */
+.orbit {
+  position: absolute;
+  inset: 0; /* container 안에 꽉 채움 */
+  transform: scale(1); /* 이 숫자만 조절하면 원+이미지 크기만 커짐 */
+  transform-origin: center;
+}
+svg {
   opacity: 0;
-  transition: opacity 1s;
+}
+/*img*/
+.image {
+  height: 400px;
+  width: 400px;
+  /* overflow: hidden; */
+  position: relative;
 }
 
-.cls-1 {
-  fill: none;
-  font-family: Arial-Black, Arial;
-  font-size: 2.5vw;
-  font-weight: 750;
-  letter-spacing: -0.08em;
-  stroke: #fff;
-  stroke-miterlimit: 10;
-  stroke-width: 0.5px;
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: dash 4s infinite linear;
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: 0.3s;
+  /* z-index: 10; */
 }
 
-.about-us .logo.on {
+.image:hover img {
+  transform: translateY(-10%) scale(1.1);
+  filter: brightness(50%);
+}
+.image.on:hover {
+  z-index: 10;
+}
+.image:hover .info {
   opacity: 1;
 }
-
-@keyframes dash {
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
-/* footer */
-/* 푸터 전체 */
-footer {
-  background-color: #f44d4d; /* 어두운 배경 */
-  color: #fff;
-  padding: 100px 5px 5px 5px;
-  /* padding top에 100px 일단 줌 */
-  box-sizing: border-box;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-/* 푸터 컨테이너 */
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap; /* 화면이 작으면 세로로 쌓이도록 */
-  padding: 0px 30px;
-  box-sizing: border-box;
-  margin: 0 auto;
-}
-
-/* 좌측 영역 */
-.footer-left {
-  flex: 1 1 300px; /* 최소 300px */
-  /* border: 1px solid red; */
-}
-
-.footer-logo img {
-  width: 150px; /* 로고 크기 */
-  margin: 5px 0;
-}
-
-.footer-address p {
-  margin: 5px 0;
-  line-height: 2rem;
-}
-
-/* 우측 영역 */
-.footer-right {
-  flex: 1 1 300px;
-  text-align: right;
-  position: relative;
-  /* border: 1px solid red; */
-}
-
-.footer-contact p {
-  margin: 5px 0;
-  line-height: 2rem;
-}
-
-.footer-social {
-  margin-top: 20px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  font-size: 1.5rem;
-  color: #fff;
-}
-
-.footer-social a {
-  display: inline-block;
-  margin-left: 10px;
-  color: #fff;
-  margin: 5px 0;
-}
-
-.footer-ck img {
-  width: 70px;
+/*info*/
+.info {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  margin: 5px 0;
+  /* top: 50%;
+        transform: translateY(-50%); */
+  inset: 35px; /* top:0; right:0; bottom:0; left:0 */
+  /* background: rgba(0, 0, 0, 0.2); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  color: #fff;
+  opacity: 0;
+  transition: 0.3s;
+  word-break: keep-all;
+  transform: translateY(-10%);
 }
 
-/* ------------------------------------------
-   모바일: 600px 이하
------------------------------------------- */
-@media (max-width: 600px) {
-  /* 비디오 전체 화면 */
-  .video-full {
-    width: 100vw;
-    height: 30vh;
-    overflow: hidden;
-  }
-
-  .video-full video {
-    width: 100%;
-    height: 100%;
-  }
-  .video-nav {
-    display: none;
-  }
-  /* 회사소개 섹션 */
-  .about-us {
-    width: 100%;
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: background-color 0.5s;
-    color: #fff;
-    font-weight: bold;
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* 텍스트 (플러스보다 위, 오른쪽에서 슬라이드) */
-  .about-us .list.text div {
-    position: absolute;
-    left: 50%;
-    transform: translateX(150%); /* 오른쪽 밖에서 시작 */
-    opacity: 0;
-    transition: transform 1s ease, opacity 1s ease;
-    font-size: calc(20px + 10vw);
-    color: #fff;
-    z-index: 10;
-  }
-  /* 플러스보다 위 위치 */
-  .about-us .text1,
-  .text2,
-  .text3 {
-    top: calc(50% - 220px);
-  }
-
-  /* 로고 (플러스보다 아래, 중앙) */
-  .about-us .logo {
-    width: calc(200vw + 200px);
-    width: 200vw;
-    height: auto;
-    position: absolute;
-    top: calc(50% + -20px);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 1s;
-  }
-
-  /* footer */
-
-  footer {
-    width: 100vw;
-    height: auto; /* 내용에 맞춰 자동 */
-    padding: 30px;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-left,
-  .footer-right {
-    font-size: 0.7rem;
-    flex: 1 1 100%;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
-  .footer-social {
-    justify-content: center;
-  }
-  .footer-ck img {
-    position: absolute;
-    right: 0; /* 오른쪽 끝 */
-    top: 50%; /* 세로 중앙 */
-
-    width: 70px; /* 필요 시 크기 조절 */
-  }
+.info:hover p {
+  z-index: 10;
+}
+.info p {
+  font-size: 20px;
+}
+.info h3 {
+  margin: 10px 0px;
+  font-size: 27px;
+}
+/* 제품 박스 클릭시에 뜨는 쿠키 이미지 */
+/*deco*/
+.deco {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+}
+/* 이미지 감싼 부모 */
+.left,
+.right {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+}
+/* 초코파이 찰떡 쿠키 위치 따로 */
+.left1.choco {
+  left: 2%;
+  top: -1%;
+}
+.right3.choco {
+  right: 2%;
+  top: 20%;
+}
+/* 찰떡 쿠키 크기 위치 따로 */
+.left.left2.oriC,
+.right.right2.oriC {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+}
+.left2.oriC {
+  left: 5%;
+  top: 15%;
+}
+.right2.oriC {
+  right: 5%;
+  top: 2%;
 }
 
-/* ------------------------------------------
-   태블릿: 601px ~ 1220px
------------------------------------------- */
-@media (min-width: 601px) and (max-width: 1220px) {
-  /* 비디오 전체 화면 */
-  .video-full {
-    padding: 120px 0;
-    height: 50vw;
-  }
-  .video-full video {
-    width: 100%;
-    height: 100%;
-  }
-  .video-nav {
-    display: none;
-  }
+/* 유자치즈케이크 이미지크기 위치 따로 */
+.left.left3.yuzuC,
+.right.right1.yuzuC {
+  width: 550px;
+  height: 550px;
+  position: absolute;
+}
+.left3.yuzuC {
+  left: 2%;
+  top: 15%;
+}
+.right1.yuzuC {
+  right: 5%;
+  top: -5%;
+}
+/* 그랑쉘 딸기 이미지 크기 위치 따로 */
+.left.left3.gs,
+.right.right1.gs {
+  width: 550px;
+  height: 550px;
+  position: absolute;
+}
+.left3.gs {
+  left: -2%;
+  top: 15%;
+}
+.right1.gs {
+  right: 3%;
+  top: -6%;
+}
+/* 찰떡 호떡 쿠키 크기 위치 따로*/
+.left.left2.hd,
+.right.right2.hd {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+}
+.right2.hd {
+  right: 3%;
+  top: 2%;
+}
+/* 브루느와 크기 따로 */
+.left.left3.br,
+.right.right1.br {
+  width: 450px;
+  height: 450px;
+  position: absolute;
+}
+/* 그랑쉘 파인애플 크기 위치 따로 */
+.left.left1.gp,
+.right.right3.gp {
+  width: 650px;
+  height: 650px;
+  position: absolute;
+}
+.left1.gp {
+  top: -8%;
+  left: 5%;
+}
+.right3.gp {
+  right: -2%;
+  top: 15%;
+}
+/* 쫀득 과일칩 크키 따로 */
+.left.left2.cf,
+.right.right2.cf {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+}
+/* 그랑쉘 사과 크기 따로 */
+.left.left1.ga,
+.right.right3.ga {
+  width: 450px;
+  height: 450px;
+  position: absolute;
+}
+/*이미지 자체 */
+.left img,
+.right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  /* 회사소개 섹션 */
-  .about-us {
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: background-color 0.5s;
-    color: #fff;
-    font-weight: bold;
-    position: relative;
-    overflow: hidden;
-  }
-  /* 플러스 중앙 */
-  .about-us .plus {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-  }
+/* 찰떡 초코파이, 쫀득 초코쿠키, 그랑쉘 파인애플, 그랑쉘 사과*/
+.left1 {
+  left: 5%;
+  top: -5%;
+}
+.right3 {
+  right: 5%;
+  top: 20%;
+}
+/* 찰떡쿠키, 찰떡 호떡쿠키, 쫀득과일칩 */
+.left2 {
+  left: 5%;
+  top: 10%;
+}
+.right2 {
+  right: 5%;
+  top: 10%;
+}
+/* 유자 치즈케이크, 브루느와, 그랑쉘 딸기 */
+.left3 {
+  left: 5%;
+  top: 25%;
+}
+.right1 {
+  right: 5%;
+  top: -5%;
+}
+/*set*/
+.deco > .set {
+  display: none;
+}
 
-  /* 텍스트 (플러스보다 위, 오른쪽에서 슬라이드) */
-  .about-us .list.text div {
-    position: absolute;
-    left: 50%;
-    transform: translateX(150%); /* 오른쪽 밖에서 시작 */
-    opacity: 0;
-    transition: transform 1s ease, opacity 1s ease;
-    font-size: calc(20px + 10vw);
-    color: #fff;
-    z-index: 10;
-  }
-  /* 플러스보다 위 위치 */
-  .about-us .text1,
-  .text2,
-  .text3 {
-    top: calc(50% - 300px);
-  }
+/* set이 active일 때만 두 원에 점선 */
+.deco .set.active .left::after,
+.deco .set.active .right::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 8px dashed #aaa;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: dashPulse 1.2s ease-in-out infinite alternate;
+}
 
-  /* 로고 (플러스보다 아래, 중앙) */
-
-  .about-us .logo {
-    width: 200vw;
-    max-width: 1220px;
-    min-width: 601px;
-    height: auto;
-    position: absolute;
-    top: calc(50% + 50px);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 1s;
+@keyframes dashPulse {
+  from {
+    opacity: 0.3;
+    transform: scale(0.5);
   }
-
-  /* footer */
-  footer {
-    width: 100vw;
-    height: auto; /* 내용에 맞춰 자동 */
-    padding: 30px;
-    box-sizing: border-box;
-    overflow: hidden;
+  to {
+    opacity: 1;
+    transform: scale(0.7);
   }
-  .footer-container {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .footer-left,
-  .footer-right {
-    flex: 1 1 50%;
-  }
-
-  .footer-social {
-    justify-content: flex-end;
-  }
-
-  /* .footer-ck img {
-    position: absolute;
-    right: 25%;
-    bottom: 0;
-  } */
 }
