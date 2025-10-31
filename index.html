@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>섹션4</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="index.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -13,115 +12,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
-      integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-simplyscroll/2.1.1/jquery.simplyscroll.min.js"
-      integrity="sha512-i8BU+cmsrlyKOPFSCdO4x4wHXvjg6YIXy6K/PsPL0/3F89ccSgk06wDBP5FTyiGDzVNADQhal1dA1DHH2JB0Rw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
     <script src="jquery-3.7.1.min.js"></script>
     <script src="jquery.transform2d.js"></script>
     <script src="newcustom.js"></script>
   </head>
   <body>
-    <section class="con03">
-      <div class="indexcon3Box">
-        <div class="leftImg">
-          <div class="card">
-            <img src="img/Rectangle 28 (1).png" class="one" alt="" />
-            <div class="overlay2">
-              <span>꿈과 사랑, 행복을 위한 최고의 제품을 공급하겠습니다.</span>
-            </div>
-          </div>
-          <div class="card">
-            <img src="img/Rectangle 272.png" class="two" alt="" />
-            <div class="overlay">
-              <span
-                >윤리경영을 지속적인 경영 목표로 설정하여 회사의 발전을
-                도모하겠습니다.
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="rightImg">
-          <div class="rightTop card">
-            <img src="img/Rectangle 24.png" class="two" alt="" />
-            <div class="overlay">
-              <span
-                >시장 변화에 적극적으로 대응하여 경쟁력 강화에
-                주력하겠습니다.</span
-              >
-            </div>
-          </div>
-
-          <div class="rightBot">
-            <div class="botLeft card">
-              <img src="img/Rectangle 25.png" class="one" alt="" />
-              <div class="overlay2">
-                <span>협력사와의 거래를 공정하고 투명하게 실시하겠습니다.</span>
-              </div>
-            </div>
-
-            <div class="botRight">
-              <div class="card">
-                <img src="img/Rectangle 262.png" class="two" alt="" />
-                <div class="overlay">
-                  <span>고객의 감동을 끊임없이 지향하겠습니다.</span>
-                </div>
-              </div>
-              <div class="card">
-                <img src="img/Rectangle 23.png" class="one" alt="" />
-                <div class="overlay2">
-                  <span
-                    >직원 상호 신롸를 바탕으로 건전한 직장문화를 창립하고, 상호
-                    믿음으로서 회사와 개인의 발전을 도모하겠습니다.</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <ul class="botLogo">
-        <li>
-          <img src="img/제목 없음.png" alt="로고" />
-        </li>
-        <li>
-          <img src="img/제목 없음.png" alt="로고" />
-        </li>
-        <li>
-          <img src="img/제목 없음.png" alt="로고" />
-        </li>
-        <li>
-          <img src="img/제목 없음.png" alt="로고" />
-        </li>
-        <li>
-          <img src="img/제목 없음.png" alt="로고" />
-        </li>
-        <li>
-          <img src="img/제목 없음.png" alt="로고" />
-        </li>
-        <li>
-          <img src="img/제목 없음.png" alt="로고" />
-        </li>
-        <li>
-          <img src="img/제목 없음.png" alt="로고" />
-        </li>
-        <li>
-          <img src="img/제목 없음.png" alt="로고" />
-        </li>
-        <li>
-          <img src="img/제목 없음.png" alt="로고" />
-        </li>
-      </ul>
-    </section>
     <section class="con04">
       <h2>청우식품이 만들어가는 SNS 이야기</h2>
       <h3>
@@ -224,37 +119,5 @@
         <div class="next"><i class="fa-solid fa-chevron-right"></i></div>
       </div>
     </section>
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
-      if (window.innerWidth > 600) {
-        gsap.from(".one", {
-          height: "100px",
-          scrollTrigger: {
-            trigger: ".one",
-            start: "top bottom",
-            toggleActions: "play none none reverse",
-            markers: true,
-          },
-        });
-        gsap.from(".two", {
-          width: "100px",
-          transformOrigin: "left center",
-          scrollTrigger: {
-            trigger: ".two",
-            start: "top bottom",
-            toggleActions: "play none none reverse",
-            markers: true,
-          },
-        });
-      }
-
-      $(function () {
-        $(".botLogo").simplyScroll({
-          speed: 1,
-          pauseOnHover: false,
-          pauseOnTouch: false,
-        });
-      });
-    </script>
   </body>
 </html>
