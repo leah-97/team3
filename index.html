@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- visual -->
+    <div id="visual">
+      <!-- 영상 삽입 -->
+      <div class="video-full">
+        <video autoplay muted playsinline id="bg-video">
+          <source src="img/bg.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <!-- 하단 똥글뱅이 -->
+      <div class="video-nav">
+        <span class="dot" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+        <span class="dot" data-index="3"></span>
+      </div>
+    </div>
+
+    <div id="container">
+      <!-- 회사소개 섹션 (동영상 바로 아래) -->
+      <section class="about-us">
+        <div class="box">
+          <div class="flexBox column">
+            <div class="list text">
+              <div class="text1">Together</div>
+              <div class="text2">Dream</div>
+              <div class="text3">Love</div>
+            </div>
+            <div class="plus on">
+              <img src="img/plus.png" alt="icon" />
+            </div>
+
+            <div class="logo on">
+              <svg
+                id="Layer_1"
+                data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 227.51 56.4"
+              >
+                <text class="cls-1" x="50%" y="41.43" text-anchor="middle">
+                  CW FOOD
+                </text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!--  -->
+
+    <!-- 하단 footer -->
+
+    <footer>
+      <div class="footer-container">
+        <!-- 왼쪽 섹션: 로고 + 주소 -->
+        <div class="footer-left">
+          <div class="footer-logo">
+            <img src="img/logo_wh.png" alt="Cheongwoo logo" />
+          </div>
+          <address class="footer-address">
+            <p>본사: 경기도 포천시 영중면 먼재길 129</p>
+            <p>
+              서울사무소: 서울특별시 성북구 성북로 11 청우빌딩 4층 (한성대입구역
+              5번 출구)
+            </p>
+            <p>대표전화: 02-942-0111 | FAX: 02-941-2608</p>
+            <p>&copy; 2019 CHEONGWOO CO.,LTD. ALL RIGHTS RESERVED.</p>
+          </address>
+        </div>
+
+        <!-- 오른쪽 섹션: 고객센터 + 이용시간 + SNS -->
+        <div class="footer-right">
+          <div class="footer-contact">
+            <p class="customer-service">고객센터: 080-039-8585</p>
+            <p class="service-hours">
+              이용시간: 평일 오전 9시 ~ 오후 5시 (주말, 공휴일 휴무)
+            </p>
+          </div>
+          <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+          <div class="footer-ck">
+            <img src="img/footer_ck.png" alt="쿠키" />
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/custom.js"></script>
+  </body>
+</html>
